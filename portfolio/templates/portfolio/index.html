@@ -1,0 +1,426 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azom Khan Chowdhury | Portfolio</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'portfolio/css/style.css' %}">
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar glassmorphism">
+        <div class="logo">Azom Khan</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+            <div class="profile-container" data-aos="zoom-in" data-aos-duration="1000">
+                <div class="profile-img-wrap">
+                    <div class="ring ring-1"></div>
+                    <div class="ring ring-2"></div>
+                    <img src="{% static 'portfolio/images/profile.png' %}" alt="Engineer Azom Khan Chowdhury" class="profile-img">
+                </div>
+            </div>
+            <div class="hero-text">
+                <h1><span class="intro">Hello, I'm</span> <span class="highlight">Engineer Azom Khan Chowdhury</span></h1>
+                <h3>And I'm a <span class="typing"></span></h3>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/azom-khan-chowdhury.b5b153355/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/azomkhanchowdhury1" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.hackerrank.com/profile/azomkhanchowdhur1" target="_blank"><i class="fab fa-hackerrank"></i></a>
+                    <a href="https://codeforces.com/profile/azomkhanchowdhury" target="_blank"><i class="fas fa-code"></i></a>
+                    <a href="https://wa.me/8801607555120" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="action-buttons">
+                <a href="#contact" class="btn primary-btn">Contact Me</a>
+                <button onclick="window.print()" class="btn secondary-btn"><i class="fas fa-download"></i> Download Resume</button>
+            </div>
+        </div>
+        <!-- Abstract Shapes for Background -->
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+    </section>
+
+    <!-- 2. Skills Section -->
+    <section id="skills" class="skills section-padding">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">My <span>Skills</span></h2>
+            <div class="skills-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                <!-- Hard Skills -->
+                <div class="skill-category glass-card" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Hard Skills</h3>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Python / Django</span>
+                            <span class="percent-text">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 0%; --fallback-width: 80%;" data-width="80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>HTML / CSS</span>
+                            <span class="percent-text">60%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 0%; --fallback-width: 60%;" data-width="60%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Graphics Designer</span>
+                            <span class="percent-text">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 0%; --fallback-width: 80%;" data-width="80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span>Video Editing</span>
+                            <span class="percent-text">70%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 0%; --fallback-width: 70%;" data-width="70%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Soft Skills & Software -->
+                <div class="skill-category glass-card" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Software & Knowledge</h3>
+                    <ul class="list-skills">
+                        <li><i class="fas fa-check-circle"></i> Computer Hardware & System</li>
+                        <li><i class="fas fa-check-circle"></i> Adobe Photoshop</li>
+                        <li><i class="fas fa-check-circle"></i> Adobe Illustrator</li>
+                        <li><i class="fas fa-check-circle"></i> Microsoft Office</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2.1 Technical Skills -->
+    <section id="technical-skills" class="more-section section-padding bg-alt">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Technical <span>Skills</span></h2>
+            <div class="technical-skills-layout">
+                <div class="glass-card tech-card" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Programming Language</h3>
+                    <ul class="list-skills">
+                        <li><i class="fas fa-code"></i> Python</li>
+                    </ul>
+                </div>
+                <div class="glass-card tech-card" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Frontend</h3>
+                    <ul class="list-skills">
+                        <li><i class="fab fa-html5"></i> HTML</li>
+                        <li><i class="fab fa-css3-alt"></i> CSS</li>
+                    </ul>
+                </div>
+                <div class="glass-card tech-card" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Backend</h3>
+                    <ul class="list-skills">
+                        <li><i class="fab fa-python"></i> Django Framework</li>
+                    </ul>
+                </div>
+                <div class="glass-card tech-card" data-aos="fade-up" data-aos-delay="400">
+                    <h3>Databases</h3>
+                    <ul class="list-skills">
+                        <li><i class="fas fa-database"></i> MySQL</li>
+                        <li><i class="fas fa-database"></i> PostgreSQL</li>
+                    </ul>
+                </div>
+                <div class="glass-card tech-card" data-aos="fade-up" data-aos-delay="500">
+                    <h3>Tools</h3>
+                    <ul class="list-skills">
+                        <li><i class="fab fa-git-alt"></i> Git</li>
+                        <li><i class="fab fa-github"></i> GitHub</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2.2 Featured Projects -->
+    <section id="projects" class="projects-section section-padding">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Featured <span>Projects</span></h2>
+            <div class="projects-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                <!-- Project 1 -->
+                <div class="project-card glass-card" data-aos="fade-up">
+                    <div class="project-info" style="display: flex; flex-direction: column; gap: 15px;">
+                        <div class="project-header" style="display: flex; justify-content: space-between; align-items: center;">
+                            <h3 style="font-size: 1.3rem;">Dhalua Bohumukhi High School</h3>
+                            <a href="https://dhalua-bohumukhi-high-school.onrender.com" target="_blank" class="project-link" style="color: var(--primary-color); font-size: 1.5rem; transition: transform 0.3s ease;"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                        <p style="color: var(--text-muted); line-height: 1.6;">A modern, full-featured web application designed for school management, built using Django.</p>
+                        <div class="tech-stack" style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <span style="font-size: 0.85rem; padding: 5px 12px; background: rgba(59, 130, 246, 0.2); border-radius: 20px; color: var(--text-color);">Django</span>
+                            <span style="font-size: 0.85rem; padding: 5px 12px; background: rgba(59, 130, 246, 0.2); border-radius: 20px; color: var(--text-color);">Python</span>
+                            <span style="font-size: 0.85rem; padding: 5px 12px; background: rgba(59, 130, 246, 0.2); border-radius: 20px; color: var(--text-color);">Web Development</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Additional projects can be added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 2.3 Co-Curricular Activities -->
+    <section id="co-curricular" class="more-section section-padding bg-alt">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Co-Curricular <span>Activities</span></h2>
+            <div class="glass-card" data-aos="fade-up">
+                <ul class="activities-list">
+                    <li><i class="fas fa-plane-departure"></i> Travelling</li>
+                    <li><i class="fas fa-music"></i> Islamic Nasheed</li>
+                    <li><i class="fas fa-volleyball-ball"></i> Sports</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Experience -->
+    <section id="experience" class="more-section section-padding">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Professional <span>Experience</span></h2>
+            <div class="glass-card exp-card" data-aos="fade-up" style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <h3 style="color: var(--primary-color); margin-bottom: 15px; font-size: 1.5rem;">Freelance / Classroom Experience</h3>
+                <p style="color: var(--text-muted); line-height: 1.8; font-size: 1.1rem;">I have not yet worked under any company or organization. However, through my classroom experience, I have developed important skills such as communication, teamwork, and problem-solving.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. About Me -->
+    <section id="about" class="about section-padding bg-alt">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">About <span>Me</span></h2>
+            <div class="glass-card about-card" data-aos="fade-up" style="max-width: 900px; margin: 0 auto; padding: 40px;">
+                <p style="color: var(--text-color); line-height: 1.8; margin-bottom: 20px; font-size: 1.1rem; text-align: justify;">First of all, my greetings to you! I am a quiet, honest and one-word person. I grew up in the village where I studied for higher education. I completed my four-year Diploma in Engineering from ICST, Feni, with a CST degree, and completed Web development with Python and Django at Creative IT in Dhaka for industrial attachment.</p>
+                <p style="color: var(--text-color); line-height: 1.8; font-size: 1.1rem; text-align: justify;">If you are looking for an employee in your company who is efficient, honest, and believes in action rather than words, then you can contact me. I will try to work hard, God willing. If I make a mistake, please forgive me. Only humans make mistakes, and if you make a mistake, you can learn something new.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Education -->
+    <section id="education" class="timeline-section section-padding">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up"><span>Education</span></h2>
+            <div class="timeline">
+                <div class="timeline-item left" data-aos="fade-right">
+                    <div class="timeline-content glass-card">
+                        <h3>Diploma in Engineering (CST)</h3>
+                        <p class="institute">Institute of Computer Science & Technology (ICST), Feni</p>
+                        <span class="year">2021 - 2022</span>
+                        <p><strong>Board:</strong> Dhaka | <strong>CGPA:</strong> Running</p>
+                    </div>
+                </div>
+                <div class="timeline-item right" data-aos="fade-left">
+                    <div class="timeline-content glass-card">
+                        <h3>SSC (Science)</h3>
+                        <p class="institute">Dhalua Bohumukhi High School</p>
+                        <span class="year">2021</span>
+                        <p><strong>Board:</strong> Cumilla | <strong>GPA:</strong> 3.44</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Training / Certification -->
+    <section id="training" class="more-section section-padding bg-alt">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Training & <span>Certification</span></h2>
+            <div class="glass-card training-card" data-aos="fade-up" style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <h3 style="color: var(--primary-color); font-size: 1.5rem; margin-bottom: 10px;">Industrial Attachment</h3>
+                <p style="font-weight: 600; font-size: 1.2rem; margin-bottom: 15px;">Creative IT Institute</p>
+                <div style="display: inline-block; padding: 8px 20px; background: rgba(59, 130, 246, 0.2); border-radius: 20px; font-size: 1rem; margin-bottom: 20px; color: var(--text-color);">
+                    <i class="fas fa-calendar-alt" style="margin-right: 8px; color: var(--primary-color);"></i> 01.09.2025 - 30.11.2025 (3 Months)
+                </div>
+                <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 15px; font-size: 1.1rem;"><strong>Topics:</strong> Web Development, Python Programming, Django Framework</p>
+                <div style="display: inline-flex; align-items: center; gap: 10px; color: #10b981; font-weight: 600;">
+                    <i class="fas fa-certificate"></i> Got Certificate
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Responsibilities -->
+    <section id="responsibilities" class="more-section section-padding">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up"><span>Responsibilities</span></h2>
+            <div class="glass-card" data-aos="fade-up">
+                <ul class="list-skills" style="display: flex; flex-direction: column; gap: 10px;">
+                    <li><i class="fas fa-check-circle"></i> Project details analysis and planning</li>
+                    <li><i class="fas fa-check-circle"></i> Problem solving and debugging</li>
+                    <li><i class="fas fa-check-circle"></i> End-to-end project solution architecture</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Language Proficiency -->
+    <section id="language" class="more-section section-padding bg-alt">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Language <span>Proficiency</span></h2>
+            <div class="glass-card" data-aos="fade-up">
+                <ul class="list-skills" style="display: flex; flex-direction: column; gap: 15px;">
+                    <li><i class="fas fa-language"></i> <strong>English:</strong> Reading (Beginner), Writing (Intermediate), Listening (Beginner), Speaking (Intermediate)</li>
+                    <li><i class="fas fa-language"></i> <strong>Bangla:</strong> Native/Advance in all modules</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Reference -->
+    <section id="reference" class="more-section section-padding">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up"><span>Reference</span></h2>
+            <div class="glass-card ref-item" data-aos="fade-up">
+                <h4>Md Sydul Amin</h4>
+                <p class="role">DevOps Engineer | Software Engineer</p>
+                <p>Docker, Kubernetes, AWS, CI/CD, Python automation</p>
+                <p><i class="fas fa-envelope"></i> sydul.citi.bd@gmail.com</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Personal Information -->
+    <section id="personal-info" class="about section-padding bg-alt">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Personal <span>Information</span></h2>
+            <div class="personal-info glass-card" data-aos="fade-up" style="width: 100%;">
+                <ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <li><i class="fas fa-calendar-alt"></i> <strong>Date of birth:</strong> 17-05-2004</li>
+                    <li><i class="fas fa-flag"></i> <strong>Nationality:</strong> Bangladesh</li>
+                    <li><i class="fas fa-id-card"></i> <strong>NID:</strong> 9592926604</li>
+                    <li><i class="fas fa-heart"></i> <strong>Marital status:</strong> Unmarried</li>
+                    <li><i class="fas fa-envelope"></i> <strong>Email:</strong> Azomkhanchowdhury1@gmail.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> Putijola, Post: Sijiara Bazaar, Nangalkot, Cumilla</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section-padding">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Contact <span>Me</span></h2>
+            <div class="contact-wrapper glass-card" data-aos="zoom-in">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <p>01607555120 (WhatsApp)</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>Azomkhanchowdhury1@gmail.com</p>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    {% csrf_token %}
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn primary-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Azom Khan Chowdhury. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="{% static 'portfolio/js/script.js' %}"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const btn = this.querySelector('button');
+            const originalBtnText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            btn.disabled = true;
+
+            const formData = new FormData(this);
+
+            fetch("{% url 'contact' %}", {
+                method: "POST",
+                body: formData,
+                headers: {
+                    "X-CSRFToken": document.querySelector('[name=csrfmiddlewaretoken]').value
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Your message has been saved successfully.',
+                        icon: 'success',
+                        confirmButtonColor: '#3b82f6',
+                        background: '#1e293b',
+                        color: '#f8fafc',
+                        timer: 3000,
+                        timerProgressBar: true,
+                    });
+                    this.reset();
+                } else {
+                    Swal.fire({
+                        title: 'Error!',
+                        text: data.message || 'Something went wrong.',
+                        icon: 'error',
+                        confirmButtonColor: '#3b82f6',
+                        background: '#1e293b',
+                        color: '#f8fafc'
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Unable to send message. Please try again later.',
+                    icon: 'error',
+                    confirmButtonColor: '#3b82f6',
+                    background: '#1e293b',
+                    color: '#f8fafc'
+                });
+            })
+            .finally(() => {
+                btn.innerHTML = originalBtnText;
+                btn.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>
