@@ -87,3 +87,23 @@ window.addEventListener('beforeprint', () => {
         }
     });
 });
+
+// Lightbox Functionality
+function openLightbox(src) {
+    let lightbox = document.getElementById('lightbox');
+    if (!lightbox) {
+        lightbox = document.createElement('div');
+        lightbox.id = 'lightbox';
+        lightbox.className = 'lightbox';
+        lightbox.innerHTML = '<img src="" alt="Enlarged image"><i class="fas fa-times close-lightbox"></i>';
+        document.body.appendChild(lightbox);
+        
+        lightbox.addEventListener('click', (e) => {
+            if (e.target.id === 'lightbox' || e.target.classList.contains('close-lightbox')) {
+                lightbox.style.display = 'none';
+            }
+        });
+    }
+    lightbox.querySelector('img').src = src;
+    lightbox.style.display = 'flex';
+}

@@ -2,10 +2,11 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.core.mail import send_mail
 from django.conf import settings
-from .models import ContactMessage
+from .models import ContactMessage, Project
 
 def home(request):
-    return render(request, 'portfolio/index.html')
+    projects = Project.objects.all().prefetch_related('images')
+    return render(request, 'portfolio/index.html', {'projects': projects})
 
 def contact_view(request):
     if request.method == 'POST':

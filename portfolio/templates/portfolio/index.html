@@ -13,6 +13,8 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'portfolio/css/style.css' %}">
+    <!-- Favicon -->
+    <link rel="icon" href="data:;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==">
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
@@ -68,7 +70,7 @@
     <section id="skills" class="skills section-padding">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">My <span>Skills</span></h2>
-            <div class="skills-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+            <div class="skills-container">
                 <!-- Hard Skills -->
                 <div class="skill-category glass-card" data-aos="fade-up" data-aos-delay="100">
                     <h3>Hard Skills</h3>
@@ -170,23 +172,42 @@
     <section id="projects" class="projects-section section-padding">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Featured <span>Projects</span></h2>
-            <div class="projects-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-                <!-- Project 1 -->
+            <div class="projects-grid">
+                {% for project in projects %}
                 <div class="project-card glass-card" data-aos="fade-up">
-                    <div class="project-info" style="display: flex; flex-direction: column; gap: 15px;">
+                    <div class="project-info">
                         <div class="project-header" style="display: flex; justify-content: space-between; align-items: center;">
-                            <h3 style="font-size: 1.3rem;">Dhalua Bohumukhi High School</h3>
-                            <a href="https://dhalua-bohumukhi-high-school.onrender.com" target="_blank" class="project-link" style="color: var(--primary-color); font-size: 1.5rem; transition: transform 0.3s ease;"><i class="fas fa-external-link-alt"></i></a>
+                            <h3 style="font-size: 1.3rem;">{{ project.title }}</h3>
+                            <div class="project-links">
+                                {% if project.github_link %}
+                                <a href="{{ project.github_link }}" target="_blank" title="GitHub Source"><i class="fab fa-github"></i></a>
+                                {% endif %}
+                                {% if project.link %}
+                                <a href="{{ project.link }}" target="_blank" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                                {% endif %}
+                            </div>
                         </div>
-                        <p style="color: var(--text-muted); line-height: 1.6;">A modern, full-featured web application designed for school management, built using Django.</p>
+                        <p style="color: var(--text-muted); line-height: 1.6;">{{ project.description }}</p>
                         <div class="tech-stack" style="display: flex; gap: 10px; flex-wrap: wrap;">
-                            <span style="font-size: 0.85rem; padding: 5px 12px; background: rgba(59, 130, 246, 0.2); border-radius: 20px; color: var(--text-color);">Django</span>
-                            <span style="font-size: 0.85rem; padding: 5px 12px; background: rgba(59, 130, 246, 0.2); border-radius: 20px; color: var(--text-color);">Python</span>
-                            <span style="font-size: 0.85rem; padding: 5px 12px; background: rgba(59, 130, 246, 0.2); border-radius: 20px; color: var(--text-color);">Web Development</span>
+                            {% for tech in project.get_tech_stack_list %}
+                            <span style="font-size: 0.85rem; padding: 5px 12px; background: rgba(59, 130, 246, 0.2); border-radius: 20px; color: var(--text-color);">{{ tech }}</span>
+                            {% endfor %}
                         </div>
                     </div>
+
+                    <div class="project-gallery">
+                        {% for img in project.images.all %}
+                        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="{{ forloop.counter|add:"100" }}">
+                            <img src="{{ img.image.url }}" alt="{{ project.title }}" class="gallery-img" onclick="openLightbox(this.src)">
+                        </div>
+                        {% empty %}
+                        <div class="gallery-item">
+                            <img src="{% static 'portfolio/images/project-placeholder.png' %}" alt="Placeholder" class="gallery-img">
+                        </div>
+                        {% endfor %}
+                    </div>
                 </div>
-                <!-- Additional projects can be added here -->
+                {% endfor %}
             </div>
         </div>
     </section>

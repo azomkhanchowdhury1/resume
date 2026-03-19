@@ -422,8 +422,13 @@ a {
 /* Skills */
 .skills-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
+    align-items: stretch; /* Cards will stretch to match height */
+}
+
+.skill-category {
+    height: 100%;
 }
 
 .skill-category h3 {
@@ -482,16 +487,17 @@ a {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    max-width: 800px;
+    max-width: 600px;
     margin: 0 auto;
 }
 
 .tech-card {
     display: flex;
     flex-direction: column;
-    padding: 25px 30px;
+    padding: 25px;
     align-items: flex-start;
     text-align: left;
+    height: 100%; /* Make them equal height in grid */
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease, background 0.4s ease;
 }
 
@@ -532,7 +538,14 @@ a {
 /* Redesigned Standalone Sections */
 .exp-card,
 .about-card,
-.training-card {
+.training-card,
+#co-curricular .glass-card,
+#responsibilities .glass-card,
+#language .glass-card,
+#reference .glass-card,
+#personal-info .glass-card {
+    max-width: 700px;
+    margin: 0 auto;
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: hidden;
@@ -1251,4 +1264,104 @@ footer {
         display: block !important;
         padding: 0 !important;
     }
+}
+
+/* Project Slider Styles */
+.projects-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0 !important; /* Reset padding for gallery */
+    height: 100%;
+    width: 100%; /* Ensure it takes full width of container */
+    max-width: 1100px; /* Increased as requested */
+    margin: 0 auto;
+}
+
+/* Project Gallery Styles */
+.project-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    border-top: 1px solid var(--glass-border);
+    justify-content: center;
+}
+
+.gallery-item {
+    width: 100%;
+    max-width: 320px;
+    height: 220px;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid var(--glass-border);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 auto;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    border-color: var(--primary-color);
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+}
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Lightbox Style (Optional but good) */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.project-info {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex-grow: 1;
+}
+
+.project-links {
+    display: flex;
+    gap: 15px;
+}
+
+.project-links a {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.project-links a:hover {
+    transform: translateY(-3px);
+    color: var(--secondary-color);
 }
