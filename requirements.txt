@@ -2,7 +2,6 @@
 aiohttp==3.13.2
 aiohttp-retry==2.9.1
 aiosignal==1.4.0
-amqp==5.3.1
 aniso8601==7.0.0
 arabic-reshaper==3.0.0
 asgiref==3.10.0
@@ -10,10 +9,8 @@ asn1crypto==1.5.1
 async-timeout==5.0.1
 attrs==25.4.0
 beautifulsoup4==4.14.2
-billiard==4.2.3
 braintree==4.40.0
 CacheControl==0.14.4
-celery==5.5.3
 certifi==2025.11.12
 cffi==2.0.0
 charset-normalizer==3.4.4
@@ -37,7 +34,6 @@ django-allauth==65.13.1
 django-autoslug==1.9.9
 django-bootstrap4==25.3
 django-braces==1.17.0
-django-celery-beat==2.8.1
 django-ckeditor==6.7.3
 django-cleanup==9.0.0
 django-cors-headers==4.9.0
@@ -55,8 +51,6 @@ django-js-asset==3.1.2
 django-model-utils==5.0.0
 django-mptt==0.18.0
 django-phonenumber-field==8.4.0
-django-redis==6.0.0
-django-redis-cache==3.0.1
 django-rename-app==0.1.7
 django-role-permissions==3.2.0
 django-social-share==2.3.0
@@ -65,7 +59,6 @@ django-taggit==6.1.0
 django-timezone-field==7.1
 django-tinymce==5.0.0
 django-widget-tweaks==1.5.0
-django_celery_results==2.6.0
 djangorestframework==3.16.1
 dnspython==2.8.0
 et_xmlfile==2.0.0
@@ -85,7 +78,6 @@ ipaddr==2.2.0
 jdcal==1.4.1
 jet-bridge-base==1.12.4
 jet-django==1.12.4
-kombu==5.5.4
 lockfile==0.12.2
 lxml==6.0.2
 Markdown==3.10
@@ -129,7 +121,6 @@ pytoml==0.1.21
 pytz==2025.2
 PyYAML==6.0.3
 qrcode==8.2
-redis==7.1.0
 regex==2025.11.3
 reportlab==4.4.5
 requests==2.32.5
@@ -158,7 +149,6 @@ tzdata==2025.2
 tzlocal==5.3.1
 uritools==5.0.0
 urllib3==2.5.0
-vine==5.1.0
 wcwidth==0.2.14
 webencodings==0.5.1
 wheel==0.45.1
