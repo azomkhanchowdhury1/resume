@@ -15,28 +15,31 @@ def contact_view(request):
         message = request.POST.get('message')
         
         if name and email and message:
+            # Render-এর Free Tier এ SQLite ডেটাবেস অনেক সময় Read-Only হয়ে 500 Error দেয়।
+            # তাই ডাটাবেস এরর হলে সেটা ইগনোর করে আমরা অন্তত ইমেইলটা পাঠিয়ে দেব।
             try:
-                # Save to database
                 ContactMessage.objects.create(
                     name=name,
                     email=email,
                     message=message
                 )
+            except Exception as db_e:
+                print(f"Database error (ignored): {db_e}")
                 
-                # Send Email
+            try:
                 subject = f"New Contact Message from {name}"
                 body = f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}"
                 send_mail(
                     subject,
                     body,
                     settings.DEFAULT_FROM_EMAIL,
-                    [settings.DEFAULT_FROM_EMAIL], # Send to yourself
+                    [settings.DEFAULT_FROM_EMAIL],
                     fail_silently=False,
                 )
                 return JsonResponse({'status': 'success'})
             except Exception as e:
                 print(f"Server error: {e}")
-                return JsonResponse({'status': 'error', 'message': f'Server Error: {str(e)}'}, status=500)
+                return JsonResponse({'status': 'error', 'message': f'Server Error: {str(e)}'}, status=400)
             
         return JsonResponse({'status': 'error', 'message': 'All fields are required.'}, status=400)
     
