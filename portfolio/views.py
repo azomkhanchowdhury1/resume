@@ -15,15 +15,15 @@ def contact_view(request):
         message = request.POST.get('message')
         
         if name and email and message:
-            # Save to database
-            ContactMessage.objects.create(
-                name=name,
-                email=email,
-                message=message
-            )
-            
-            # Send Email
             try:
+                # Save to database
+                ContactMessage.objects.create(
+                    name=name,
+                    email=email,
+                    message=message
+                )
+                
+                # Send Email
                 subject = f"New Contact Message from {name}"
                 body = f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}"
                 send_mail(
@@ -33,11 +33,11 @@ def contact_view(request):
                     [settings.DEFAULT_FROM_EMAIL], # Send to yourself
                     fail_silently=False,
                 )
+                return JsonResponse({'status': 'success'})
             except Exception as e:
-                print(f"Email error: {e}")
-                # We still return success because it's saved in DB
+                print(f"Server error: {e}")
+                return JsonResponse({'status': 'error', 'message': f'Server Error: {str(e)}'}, status=500)
             
-            return JsonResponse({'status': 'success'})
         return JsonResponse({'status': 'error', 'message': 'All fields are required.'}, status=400)
     
     return JsonResponse({'status': 'error', 'message': 'Invalid request method.'}, status=405)

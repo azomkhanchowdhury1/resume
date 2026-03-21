@@ -425,6 +425,8 @@ a {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
     align-items: stretch; /* Cards will stretch to match height */
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .skill-category {
@@ -487,7 +489,8 @@ a {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    max-width: 600px;
+    max-width: 800px;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -544,11 +547,28 @@ a {
 #language .glass-card,
 #reference .glass-card,
 #personal-info .glass-card {
-    max-width: 700px;
+    max-width: 800px;
+    width: 100%;
     margin: 0 auto;
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: hidden;
+}
+
+.about-card {
+    padding: 40px;
+}
+
+.exp-card,
+.training-card {
+    text-align: center;
+}
+
+.personal-info-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    list-style: none;
 }
 
 .exp-card:hover,
@@ -732,6 +752,8 @@ a {
     grid-template-columns: 1fr 2fr;
     gap: 40px;
     padding: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .contact-info {
@@ -830,6 +852,14 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .personal-info-list {
+        grid-template-columns: 1fr;
+    }
+
     .nav-links {
         display: none;
         position: absolute;
@@ -856,6 +886,36 @@ footer {
 @media screen and (max-width: 480px) {
     .container {
         padding: 0 15px;
+    }
+
+    .about-card {
+        padding: 20px;
+    }
+
+    .project-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item {
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 4/3;
+    }
+
+    .timeline::after {
+        left: 20px;
+    }
+
+    .timeline-item {
+        padding-left: 50px;
+        padding-right: 15px;
+    }
+
+    .timeline-item::after {
+        left: 10px;
+        width: 16px;
+        height: 16px;
+        top: 28px;
     }
 
     .hero h1 {
@@ -928,7 +988,9 @@ footer {
     footer,
     .contact-form,
     .hamburger,
-    .ref-item i {
+    .ref-item i,
+    .project-gallery,
+    .gallery-item {
         display: none !important;
     }
 
@@ -940,8 +1002,8 @@ footer {
 
     section {
         page-break-inside: avoid;
-        margin-bottom: 5px;
-        padding: 5px 0 !important;
+        margin-bottom: 2px !important;
+        padding: 2px 0 !important;
     }
 
     .container {
@@ -1073,28 +1135,25 @@ footer {
         padding-bottom: 2px !important;
     }
 
-    /* About Section */
-    .about-content {
-        display: flex !important;
-        flex-direction: row !important;
-        gap: 20px !important;
-    }
-
-    .about-text {
-        width: 50% !important;
+    /* About & Personal Info Section */
+    .about-card p {
+        font-size: 9pt !important;
+        margin-bottom: 5px !important;
+        line-height: 1.2 !important;
     }
 
     .personal-info {
-        width: 50% !important;
+        width: 100% !important;
     }
 
-    .about-text p {
-        font-size: 9pt !important;
-        margin-bottom: 5px !important;
-        line-height: 1.2;
+    .personal-info-list {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 5px !important;
+        margin-bottom: 0 !important;
     }
 
-    .personal-info ul li {
+    .personal-info-list li {
         margin-bottom: 5px !important;
         font-size: 9.5pt !important;
     }
@@ -1196,6 +1255,29 @@ footer {
         margin-bottom: 2px !important;
     }
 
+    .technical-skills-layout {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 10px !important;
+        margin-bottom: 5px !important;
+    }
+    
+    .tech-card {
+        padding: 5px !important;
+        margin: 0 !important;
+        min-height: auto !important;
+    }
+    
+    .project-card {
+        page-break-inside: avoid;
+        margin-bottom: 5px !important;
+    }
+    
+    .project-info {
+        padding: 0 !important;
+        gap: 5px !important;
+    }
+
     .mt-4 {
         margin-top: 5px !important;
     }
@@ -1282,14 +1364,14 @@ footer {
     padding: 0 !important; /* Reset padding for gallery */
     height: 100%;
     width: 100%; /* Ensure it takes full width of container */
-    max-width: 1100px; /* Increased as requested */
+    max-width: 1000px;
     margin: 0 auto;
 }
 
 /* Project Gallery Styles */
 .project-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 15px;
     padding: 20px;
     border-top: 1px solid var(--glass-border);

@@ -147,3 +147,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'azomkhanchowdhury1@gmail.com'  # Replace with your Gmail
 EMAIL_HOST_PASSWORD = 'vjjo jjlr zjgm pcbz'  # Replace with your App Password
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+# Render HTTPS Setup
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+CSRF_TRUSTED_ORIGINS = ['https://*.onrender.com']
