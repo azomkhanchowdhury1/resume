@@ -1,12 +1,15 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Azom Khan Chowdhury | Portfolio</title>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- AOS Animation -->
@@ -14,15 +17,21 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'portfolio/css/style.css' %}">
     <!-- Favicon -->
-    <link rel="icon" href="data:;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==">
+    <link rel="icon"
+        href="data:;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg==">
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+
 <body>
 
     <!-- Navigation -->
     <nav class="navbar glassmorphism">
+<<<<<<< HEAD
         <div class="logo">Azom Khan Chowdhury </div>
+=======
+        <div class="logo">Azom Khan Chowdhury</div>
+>>>>>>> bcc39ef (update your message)
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#skills">Skills</a></li>
@@ -42,23 +51,29 @@
                 <div class="profile-img-wrap">
                     <div class="ring ring-1"></div>
                     <div class="ring ring-2"></div>
-                    <img src="{% static 'portfolio/images/profile.png' %}" alt="Engineer Azom Khan Chowdhury" class="profile-img">
+                    <img src="{% static 'portfolio/images/profile.png' %}" alt="Engineer Azom Khan Chowdhury"
+                        class="profile-img">
                 </div>
             </div>
             <div class="hero-text">
-                <h1><span class="intro">Hello, I'm</span> <span class="highlight">Engineer Azom Khan Chowdhury</span></h1>
+                <h1><span class="intro">Hello, I'm</span> <span class="highlight">Engineer Azom Khan Chowdhury</span>
+                </h1>
                 <h3>And I'm a <span class="typing"></span></h3>
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/azom-khan-chowdhury.b5b153355/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.linkedin.com/in/azom-khan-chowdhury.b5b153355/" target="_blank"><i
+                            class="fab fa-linkedin"></i></a>
                     <a href="https://github.com/azomkhanchowdhury1" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://www.hackerrank.com/profile/azomkhanchowdhur1" target="_blank"><i class="fab fa-hackerrank"></i></a>
-                    <a href="https://codeforces.com/profile/azomkhanchowdhury" target="_blank"><i class="fas fa-code"></i></a>
+                    <a href="https://www.hackerrank.com/profile/azomkhanchowdhur1" target="_blank"><i
+                            class="fab fa-hackerrank"></i></a>
+                    <a href="https://codeforces.com/profile/azomkhanchowdhury" target="_blank"><i
+                            class="fas fa-code"></i></a>
                     <a href="https://wa.me/8801607555120" target="_blank"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
             <div class="action-buttons">
                 <a href="#contact" class="btn primary-btn">Contact Me</a>
-                <button onclick="window.print()" class="btn secondary-btn"><i class="fas fa-download"></i> Download Resume</button>
+                <button onclick="window.print()" class="btn secondary-btn"><i class="fas fa-download"></i> Download
+                    Resume</button>
             </div>
         </div>
         <!-- Abstract Shapes for Background -->
@@ -176,33 +191,39 @@
                 {% for project in projects %}
                 <div class="project-card glass-card" data-aos="fade-up">
                     <div class="project-info">
-                        <div class="project-header" style="display: flex; justify-content: space-between; align-items: center;">
+                        <div class="project-header"
+                            style="display: flex; justify-content: space-between; align-items: center;">
                             <h3 style="font-size: 1.3rem;">{{ project.title }}</h3>
                             <div class="project-links">
                                 {% if project.github_link %}
-                                <a href="{{ project.github_link }}" target="_blank" title="GitHub Source"><i class="fab fa-github"></i></a>
+                                <a href="{{ project.github_link }}" target="_blank" title="GitHub Source"><i
+                                        class="fab fa-github"></i></a>
                                 {% endif %}
                                 {% if project.link %}
-                                <a href="{{ project.link }}" target="_blank" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                                <a href="{{ project.link }}" target="_blank" title="Live Demo"><i
+                                        class="fas fa-external-link-alt"></i></a>
                                 {% endif %}
                             </div>
                         </div>
-                        <p style="color: var(--text-muted); line-height: 1.6;">{{ project.description }}</p>
-                        <div class="tech-stack" style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <p style="color: var(--text-color); font-size: 1.05rem; line-height: 1.8;">{{ project.description|linebreaksbr }}</p>
+                        <div class="tech-stack" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
                             {% for tech in project.get_tech_stack_list %}
-                            <span style="font-size: 0.85rem; padding: 5px 12px; background: rgba(59, 130, 246, 0.2); border-radius: 20px; color: var(--text-color);">{{ tech }}</span>
+                            <span
+                                style="font-size: 0.85rem; padding: 5px 12px; background: rgba(59, 130, 246, 0.2); border-radius: 20px; color: var(--text-color);">{{ tech }}</span>
                             {% endfor %}
                         </div>
                     </div>
 
                     <div class="project-gallery">
                         {% for img in project.images.all %}
-                        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="{{ forloop.counter|add:"100" }}">
-                            <img src="{{ img.image.url }}" alt="{{ project.title }}" class="gallery-img" onclick="openLightbox(this.src)">
+                        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="{{ forloop.counter|add:" 100" }}">
+                            <img src="{{ img.image.url }}" alt="{{ project.title }}" class="gallery-img"
+                                onclick="openLightbox(this.src)">
                         </div>
                         {% empty %}
                         <div class="gallery-item">
-                            <img src="{% static 'portfolio/images/project-placeholder.png' %}" alt="Placeholder" class="gallery-img">
+                            <img src="{% static 'portfolio/images/project-placeholder.png' %}" alt="Placeholder"
+                                class="gallery-img">
                         </div>
                         {% endfor %}
                     </div>
@@ -231,8 +252,11 @@
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Professional <span>Experience</span></h2>
             <div class="glass-card exp-card" data-aos="fade-up">
-                <h3 style="color: var(--primary-color); margin-bottom: 15px; font-size: 1.5rem;">Freelance / Classroom Experience</h3>
-                <p style="color: var(--text-muted); line-height: 1.8; font-size: 1.1rem;">I have not yet worked under any company or organization. However, through my classroom experience, I have developed important skills such as communication, teamwork, and problem-solving.</p>
+                <h3 style="color: var(--primary-color); margin-bottom: 15px; font-size: 1.5rem;">Freelance / Classroom
+                    Experience</h3>
+                <p style="color: var(--text-muted); line-height: 1.8; font-size: 1.1rem;">I have not yet worked under
+                    any company or organization. However, through my classroom experience, I have developed important
+                    skills such as communication, teamwork, and problem-solving.</p>
             </div>
         </div>
     </section>
@@ -242,8 +266,17 @@
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">About <span>Me</span></h2>
             <div class="glass-card about-card" data-aos="fade-up">
-                <p style="color: var(--text-color); line-height: 1.8; margin-bottom: 20px; font-size: 1.1rem; text-align: justify;">First of all, my greetings to you! I am a quiet, honest and one-word person. I grew up in the village where I studied for higher education. I completed my four-year Diploma in Engineering from ICST, Feni, with a CST degree, and completed Web development with Python and Django at Creative IT in Dhaka for industrial attachment.</p>
-                <p style="color: var(--text-color); line-height: 1.8; font-size: 1.1rem; text-align: justify;">If you are looking for an employee in your company who is efficient, honest, and believes in action rather than words, then you can contact me. I will try to work hard, God willing. If I make a mistake, please forgive me. Only humans make mistakes, and if you make a mistake, you can learn something new.</p>
+                <p
+                    style="color: var(--text-color); line-height: 1.8; margin-bottom: 20px; font-size: 1.1rem; text-align: justify;">
+                    First of all, my greetings to you! I am a quiet, honest and one-word person. I grew up in the
+                    village where I studied for higher education. I completed my four-year Diploma in Engineering from
+                    ICST, Feni, with a CST degree, and completed Web development with Python and Django at Creative IT
+                    in Dhaka for industrial attachment.</p>
+                <p style="color: var(--text-color); line-height: 1.8; font-size: 1.1rem; text-align: justify;">If you
+                    are looking for an employee in your company who is efficient, honest, and believes in action rather
+                    than words, then you can contact me. I will try to work hard, God willing. If I make a mistake,
+                    please forgive me. Only humans make mistakes, and if you make a mistake, you can learn something
+                    new.</p>
             </div>
         </div>
     </section>
@@ -278,12 +311,17 @@
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Training & <span>Certification</span></h2>
             <div class="glass-card training-card" data-aos="fade-up">
-                <h3 style="color: var(--primary-color); font-size: 1.5rem; margin-bottom: 10px;">Industrial Attachment</h3>
+                <h3 style="color: var(--primary-color); font-size: 1.5rem; margin-bottom: 10px;">Industrial Attachment
+                </h3>
                 <p style="font-weight: 600; font-size: 1.2rem; margin-bottom: 15px;">Creative IT Institute</p>
-                <div style="display: inline-block; padding: 8px 20px; background: rgba(59, 130, 246, 0.2); border-radius: 20px; font-size: 1rem; margin-bottom: 20px; color: var(--text-color);">
-                    <i class="fas fa-calendar-alt" style="margin-right: 8px; color: var(--primary-color);"></i> 01.09.2025 - 30.11.2025 (3 Months)
+                <div
+                    style="display: inline-block; padding: 8px 20px; background: rgba(59, 130, 246, 0.2); border-radius: 20px; font-size: 1rem; margin-bottom: 20px; color: var(--text-color);">
+                    <i class="fas fa-calendar-alt" style="margin-right: 8px; color: var(--primary-color);"></i>
+                    01.09.2025 - 30.11.2025 (3 Months)
                 </div>
-                <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 15px; font-size: 1.1rem;"><strong>Topics:</strong> Web Development, Python Programming, Django Framework</p>
+                <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 15px; font-size: 1.1rem;">
+                    <strong>Topics:</strong> Web Development, Python Programming, Django Framework
+                </p>
                 <div style="display: inline-flex; align-items: center; gap: 10px; color: #10b981; font-weight: 600;">
                     <i class="fas fa-certificate"></i> Got Certificate
                 </div>
@@ -311,7 +349,8 @@
             <h2 class="section-title" data-aos="fade-up">Language <span>Proficiency</span></h2>
             <div class="glass-card" data-aos="fade-up">
                 <ul class="list-skills" style="display: flex; flex-direction: column; gap: 15px;">
-                    <li><i class="fas fa-language"></i> <strong>English:</strong> Reading (Beginner), Writing (Intermediate), Listening (Beginner), Speaking (Intermediate)</li>
+                    <li><i class="fas fa-language"></i> <strong>English:</strong> Reading (Beginner), Writing
+                        (Intermediate), Listening (Beginner), Speaking (Intermediate)</li>
                     <li><i class="fas fa-language"></i> <strong>Bangla:</strong> Native/Advance in all modules</li>
                 </ul>
             </div>
@@ -325,7 +364,11 @@
             <div class="glass-card ref-item" data-aos="fade-up">
                 <h4>Md Sydul Amin</h4>
                 <p class="role">DevOps Engineer | Software Engineer</p>
+<<<<<<< HEAD
                 <p>Docker, Kubernetes, AWS, CI/CD, Python automation, Mentor.</p>
+=======
+                <p>Docker, Kubernetes, AWS, CI/CD, Python automation, Mentor</p>
+>>>>>>> bcc39ef (update your message)
                 <p><i class="fas fa-envelope"></i> sydul.citi.bd@gmail.com</p>
             </div>
         </div>
@@ -342,7 +385,12 @@
                     <li><i class="fas fa-id-card"></i> <strong>NID:</strong> 9592026604</li>
                     <li><i class="fas fa-heart"></i> <strong>Marital status:</strong> Unmarried</li>
                     <li><i class="fas fa-envelope"></i> <strong>Email:</strong> azomkhanchowdhury1@gmail.com</li>
+<<<<<<< HEAD
                     <li><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> Putijola, Post: Sijiara Bazaar, Nangalkot, Cumilla</li>
+=======
+                    <li><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> Putijola, Post: Sijiara Bazaar,
+                        Nangalkot, Cumilla</li>
+>>>>>>> bcc39ef (update your message)
                 </ul>
             </div>
         </div>
@@ -382,11 +430,11 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="{% static 'portfolio/js/script.js' %}"></script>
+    <script src="{% static 'portfolio/js/main.js' %}"></script>
     <script>
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             const btn = this.querySelector('button');
             const originalBtnText = btn.innerHTML;
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
@@ -401,47 +449,48 @@
                     "X-CSRFToken": document.querySelector('[name=csrfmiddlewaretoken]').value
                 }
             })
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === 'success') {
-                    Swal.fire({
-                        title: 'Success!',
-                        text: 'Your message has been saved successfully.',
-                        icon: 'success',
-                        confirmButtonColor: '#3b82f6',
-                        background: '#1e293b',
-                        color: '#f8fafc',
-                        timer: 3000,
-                        timerProgressBar: true,
-                    });
-                    this.reset();
-                } else {
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        Swal.fire({
+                            title: 'Success!',
+                            text: 'Your message has been saved successfully.',
+                            icon: 'success',
+                            confirmButtonColor: '#3b82f6',
+                            background: '#1e293b',
+                            color: '#f8fafc',
+                            timer: 3000,
+                            timerProgressBar: true,
+                        });
+                        this.reset();
+                    } else {
+                        Swal.fire({
+                            title: 'Error!',
+                            text: data.message || 'Something went wrong.',
+                            icon: 'error',
+                            confirmButtonColor: '#3b82f6',
+                            background: '#1e293b',
+                            color: '#f8fafc'
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
                     Swal.fire({
                         title: 'Error!',
-                        text: data.message || 'Something went wrong.',
+                        text: 'Unable to send message. Please try again later.',
                         icon: 'error',
                         confirmButtonColor: '#3b82f6',
                         background: '#1e293b',
                         color: '#f8fafc'
                     });
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                Swal.fire({
-                    title: 'Error!',
-                    text: 'Unable to send message. Please try again later.',
-                    icon: 'error',
-                    confirmButtonColor: '#3b82f6',
-                    background: '#1e293b',
-                    color: '#f8fafc'
+                })
+                .finally(() => {
+                    btn.innerHTML = originalBtnText;
+                    btn.disabled = false;
                 });
-            })
-            .finally(() => {
-                btn.innerHTML = originalBtnText;
-                btn.disabled = false;
-            });
         });
     </script>
 </body>
+
 </html>

@@ -1,6 +1,7 @@
 // Initialize AOS Animation
 AOS.init({
-    once: true,
+    once: false,
+    mirror: true,
     offset: 100,
 });
 
@@ -23,8 +24,8 @@ const navLinks = document.querySelector('.nav-links');
 if (hamburger && navLinks) {
     hamburger.addEventListener('click', () => {
         navLinks.classList.toggle('active');
-        hamburger.innerHTML = navLinks.classList.contains('active') 
-            ? '<i class="fas fa-times"></i>' 
+        hamburger.innerHTML = navLinks.classList.contains('active')
+            ? '<i class="fas fa-times"></i>'
             : '<i class="fas fa-bars"></i>';
     });
 }
@@ -34,11 +35,11 @@ const progressBars = document.querySelectorAll('.progress');
 
 const animateProgress = (entries, observer) => {
     entries.forEach(entry => {
+        const progressBar = entry.target;
+        const targetWidth = progressBar.getAttribute('data-width');
+        const percentText = progressBar.parentElement.previousElementSibling?.querySelector('.percent-text');
+
         if (entry.isIntersecting) {
-            const progressBar = entry.target;
-            const targetWidth = progressBar.getAttribute('data-width');
-            const percentText = progressBar.parentElement.previousElementSibling.querySelector('.percent-text');
-            
             // Animate width
             progressBar.style.width = targetWidth;
 
@@ -48,7 +49,11 @@ const animateProgress = (entries, observer) => {
             const duration = 1500; // ms
             const interval = 20; // ms
             const step = targetValue / (duration / interval);
-            
+
+            if (progressBar.dataset.timer) {
+                clearInterval(parseInt(progressBar.dataset.timer));
+            }
+
             const timer = setInterval(() => {
                 currentWidth += step;
                 if (currentWidth >= targetValue) {
@@ -60,8 +65,17 @@ const animateProgress = (entries, observer) => {
                 }
             }, interval);
 
-            // Stop observing once animated
-            observer.unobserve(progressBar);
+            progressBar.dataset.timer = timer;
+        } else {
+            // Reset state when out of view
+            progressBar.style.width = '0%';
+            if (percentText) {
+                percentText.innerText = '0%';
+            }
+            if (progressBar.dataset.timer) {
+                clearInterval(parseInt(progressBar.dataset.timer));
+                delete progressBar.dataset.timer;
+            }
         }
     });
 };
@@ -97,7 +111,7 @@ function openLightbox(src) {
         lightbox.className = 'lightbox';
         lightbox.innerHTML = '<img src="" alt="Enlarged image"><i class="fas fa-times close-lightbox"></i>';
         document.body.appendChild(lightbox);
-        
+
         lightbox.addEventListener('click', (e) => {
             if (e.target.id === 'lightbox' || e.target.classList.contains('close-lightbox')) {
                 lightbox.style.display = 'none';
